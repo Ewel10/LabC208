@@ -1,62 +1,76 @@
 .data
-txt1: .asciiz "Entre com o primeiro valor: "
-txt2: .asciiz "Entre com o segundo valor: "
-txt3: .asciiz "Entre com o terceiro valor: "
-txtigual: .asciiz "a soma deu igual a 100"
-txtmaior: .asciiz "a soma de maior que 100"
-txtmenor: .asciiz "a soma deu menor que 100"
+
+msg1: .asciiz "Entre com o primeiro valor: "
+msg2: .asciiz "Entre com o segundo valor: "
+msg3: .asciiz "Entre com o terceiro valor: "
+msg4: .asciiz "Soma dos valores: "
+msg5: .asciiz "\nMaior que 100"
+msg6: .asciiz "\nMenor que 100"
+msg7: .asciiz "\nIgual a 100"
 
 .text
-# Primeiro num
+
+# Entrando com o primeiro valor
 li $v0, 4
-la $a0, txt1
+la $a0, msg1
 syscall
 
 li $v0, 5
 syscall
-add $t0, $v0, $t0
+add $t1, $v0, $0
 
-# Segundo num
+# Entrando com o segundo valor
 li $v0, 4
-la $a0, txt2
+la $a0, msg2
 syscall
 
 li $v0, 5
 syscall
-add $t1, $v0, $t1
+add $t2, $v0, $0
 
-# Terceiro num
+# Entrando com o terceiro valor
 li $v0, 4
-la $a0, txt3
+la $a0, msg3
 syscall
 
 li $v0, 5
 syscall
-add $t2, $v0, $t2
+add $t3, $v0, $0
 
-# somando os 3 numeros e deixando ele em $t3
-add $t3, $t0, $t1
-add $t3, $t3, $t2
+# Fazendo a soma dos 3 valores: 
 
-beq $t3, 100, IGUAL
-bgt $t3, 100, MAIOR
+add $t4, $t1, $t2
+add $t4, $t4, $t3
 
-li $v0, 4
-la $a0, txtmenor
+# Printando o valor da soma:
+li $v0, 1
+la $a0, ($t4)
 syscall
-j exit
 
-IGUAL:
-li $v0, 4
-la $a0, txtigual
-syscall
-j exit
+# Implementando a lógica de verificação
+
+bgt $t4, 100, MAIOR
+blt $t4, 100, MENOR
+j IGUAL
 
 MAIOR:
 li $v0, 4
-la $a0, txtmaior
+la $a0, msg5
 syscall
+j FIM
 
-exit:
+MENOR:
+li $v0, 4
+la $a0, msg6
+syscall
+j FIM
+
+IGUAL:
+li $v0, 4
+la $a0, msg7
+syscall
+j FIM
+
+FIM:
 li $v0, 10
 syscall

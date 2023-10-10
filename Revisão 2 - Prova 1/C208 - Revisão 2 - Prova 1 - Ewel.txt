@@ -12,7 +12,6 @@ Seu equivalente em instrução básica é usando o add, você pode adicionar o c
 
 4) a=$t1, b=$t2, c=$t3, d=$t4 e x=$t5
 
-
 a = 1
 b = 2
 c = 3
