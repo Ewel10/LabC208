@@ -1,0 +1,28 @@
+1) 
+O programa fonte é criado e passado para o montador (equivalente ao compilador de uma linguagem de alto nível), que o transforma no programa objeto.
+Após isso, o linkador junta todos os módulos do programa objeto em um único executável, que varia de acordo com a arquitetura do Sistema Operacional.
+
+2) 
+I-> Verdadeiro, as instruções do RISC são executadas baseadas nos ciclos de clock, então elas precisam só do hardware pra funcionar.
+II -> Falso. RISC é basicamente uma arquitetura com as intruções reduzidas, portanto elas são menos complexas.
+
+3)
+Uma pseudo-instrução seria como o comando "move", que move o conteudo de um registrador para outro.
+Seu equivalente em instrução básica é usando o add, você pode adicionar o conteúdo de um registrador no outro e somar 0, só movendo de um para o outro.
+
+4) a=$t1, b=$t2, c=$t3, d=$t4 e x=$t5
+
+
+a = 1
+b = 2
+c = 3
+d = 4
+x = 10
+
+if b < a
+   break
+if c > d
+   x = x + 1
+else
+   x = x - 1
+   break

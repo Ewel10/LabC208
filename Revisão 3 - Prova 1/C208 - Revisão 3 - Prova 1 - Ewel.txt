@@ -1,0 +1,27 @@
+1)
+a. F, não são os compiladores que são usados, é o linkador que gera um executável.
+
+b. F, não necessáriamente envolvem um sistema operacional diferente, as arquiteturas dos processadores também influenciam.
+
+c. F, para gerar um executável, é necessário que o linkador junte os códigos objetos, a montagem não tem nada a ver com o processo.
+
+d. F, não necessáriamente, a arquitetura do processador pode interferir, se um deles for big endian e o outro little endian, já muda tudo.
+
+2)
+Imagem separada
+
+3) a = $s0, b = $s1, c = $s2, d = $s4
+
+c[5] = a[4] + d - c
+
+lw $t1, 16($s0)
+add $t0, $s4, $t1
+sub $t0, $t0, $s2
+
+sw $t0, 20($s2)
+
+4)
+Imagem separada
+
+5)
+Arquivo ASM separado
